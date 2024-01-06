@@ -25,8 +25,8 @@ export const Todo = ({todo, toggleComplete, deleteTodo, editTodo}) => {
         overall, applies CSS class 'completed' to an element if todo.completed is true (since we are changing className)
         */}
         <div>
-            <FontAwesomeIcon icon={faPenToSquare} onClick={() => editTodo(todo.id)}/>
-            <FontAwesomeIcon icon={faTrash} onClick={() => deleteTodo(todo.id)} />
+            <FontAwesomeIcon icon={faPenToSquare} onClick={() => editTodo(todo.id)} className="fa-solid"/>
+            <FontAwesomeIcon icon={faTrash} onClick={() => deleteTodo(todo.id)} className="fa-solid" />
         </div> 
     </div>
   )

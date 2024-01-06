@@ -42,7 +42,10 @@ export const TodoWrapper = () => {
 
   return (
     <div className='TodoWrapper'>
-        <h1>Get Things Done!</h1>
+        <div>
+            <img src={process.env.PUBLIC_URL + '/miffy2.png'} alt="test" className='logo'></img>
+        </div>
+        <h1>My to-do list</h1>
         <TodoForm addTodo={addTodo} /> {/* attribute addTodo being passed to TodoForm component (prop is a function addTodo that adds todo to interface) */}
         {todos.map((todo, index) => ( /* maps instructions below to each element of todos --> basically makes each item into a todo component */
             /* if isEditing true show edit todo form on screen, else display todos */
