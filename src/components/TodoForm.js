@@ -17,7 +17,7 @@ className points to class in style sheet (css)
 
 export const TodoForm = ({addTodo}) => {
     const [value, setValue] = useState("")
-    const [date, setDate] = useState("")
+    const [date, setDate] = useState("Unspecified")
 
     const handleSubmit = e => {
         e.preventDefault(); /* stops page from reloading every time new task submitted */
@@ -27,7 +27,7 @@ export const TodoForm = ({addTodo}) => {
 
         /* clears form after submitting */
         setValue("");
-        setDate("");
+        setDate("Unspecified");
     }
 
   return (

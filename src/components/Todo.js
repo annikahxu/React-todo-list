@@ -5,7 +5,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 /* displays todos that we've added */
 
-export const Todo = ({todo, toggleComplete, changeDate, deleteTodo, editTodo}) => {
+export const Todo = ({todo, toggleComplete, deleteTodo, editTodo}) => {
   return (
     <div className='Todo' >
         {/* example usage
@@ -25,7 +25,7 @@ export const Todo = ({todo, toggleComplete, changeDate, deleteTodo, editTodo}) =
         overall, applies CSS class 'completed' to an element if todo.completed is true (since we are changing className)
         */}
         <div>
-            <p className="date-text"> {todo.date} </p>
+            <p className="date-text"> Due: {todo.date} </p>
             <FontAwesomeIcon icon={faPenToSquare} onClick={() => editTodo(todo.id)} className="fa-solid"/>
             <FontAwesomeIcon icon={faTrash} onClick={() => deleteTodo(todo.id)} className="fa-solid" />
         </div> 

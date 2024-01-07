@@ -12,12 +12,16 @@ export const TodoWrapper = () => {
     variable todo is the value being added 
     used as a property (props) in child component todoform */
     const addTodo = (todo, date) => {
-        /* ...todos copies existing elements of todos array and includes in new array being created
-        id: uuidv4 generates unique identifier so each task can be identified
-        task: todo sets tasks's description
-        completed, isEditing are booleans which default to false */
-        setTodos([...todos, {id: uuidv4(), date: date, task: todo, completed: false, isEditing: false}])
-        console.log(todos)
+        if(todo===""){
+            console.log("no task entered")
+        }else{
+            /* ...todos copies existing elements of todos array and includes in new array being created
+            id: uuidv4 generates unique identifier so each task can be identified
+            task: todo sets tasks's description
+            completed, isEditing are booleans which default to false */
+            setTodos([...todos, {id: uuidv4(), date: date, task: todo, completed: false, isEditing: false}])
+            console.log(todos)
+        }
 
     }
 
