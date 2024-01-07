@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+/* color palette https://coolors.co/00916e-feefe5-ffcf00-3d3b30 */
 
 * {
   font-family: 'Outfit', sans-serif;
@@ -74,6 +75,14 @@ h1 {
   margin-left: 0.75rem;
 }
 
+/* .fa-pen-to-square {
+  margin-left: 0.75rem;
+} */
+
+.fa-calendar-day {
+  margin-right: 0.75rem;
+}
+
 .incompleted {
   color: #feefe5;
   cursor: pointer;
@@ -92,9 +101,30 @@ h1 {
 
 .fa-solid {
   color: #feefe5;
+  display: inline-block;
 }
 
 .logo {
   height: 80px;
   margin: 0.5rem;
+}
+
+.todo-date {
+  width: 100%;
+  height: 100%;
+}
+
+.date-input-container {
+  width: 1.3rem;
+  height: 1.3rem;
+  margin-right: 0.50rem;
+  position: relative;
+  display: inline-block;
+}
+
+.date-text {
+  display: inline-block;
+  color: #3d3b30;
+  margin-right: 1rem;
+  font-size: 0.8rem;
 }

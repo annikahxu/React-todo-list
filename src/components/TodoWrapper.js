@@ -11,12 +11,12 @@ export const TodoWrapper = () => {
     /* adds todo item to list in todo form (which is called todos)
     variable todo is the value being added 
     used as a property (props) in child component todoform */
-    const addTodo = todo => {
-        /* ...todos copies existing elements of todos array and includes in new arrat being created
+    const addTodo = (todo, date) => {
+        /* ...todos copies existing elements of todos array and includes in new array being created
         id: uuidv4 generates unique identifier so each task can be identified
         task: todo sets tasks's description
         completed, isEditing are booleans which default to false */
-        setTodos([...todos, {id: uuidv4(), task: todo, completed: false, isEditing: false}])
+        setTodos([...todos, {id: uuidv4(), date: date, task: todo, completed: false, isEditing: false}])
         console.log(todos)
 
     }
@@ -30,14 +30,14 @@ export const TodoWrapper = () => {
         setTodos(todos.filter(todo => todo.id !== id)) /* creates new array containing only elements with todo.id not equal to id */
     }
 
-    const editTodo = id => {
+    const editTodo = id => { /* changes isEditing boolean */
         setTodos(todos.map(todo => todo.id === id ?
             {...todo, isEditing: !todo.isEditing} : todo))
     }
 
-    const editTask = (task, id) => {
+    const editTask = (task, date, id) => {
         setTodos(todos.map(todo => todo.id === id ?
-            {...todo, task, isEditing: !todo.isEditing} : todo))
+            {...todo, task, date, isEditing: !todo.isEditing} : todo))
     }
 
   return (
@@ -46,13 +46,14 @@ export const TodoWrapper = () => {
             <img src={process.env.PUBLIC_URL + '/miffy2.png'} alt="test" className='logo'></img>
         </div>
         <h1>My to-do list</h1>
-        <TodoForm addTodo={addTodo} /> {/* attribute addTodo being passed to TodoForm component (prop is a function addTodo that adds todo to interface) */}
+        <TodoForm addTodo={addTodo} /> {/* attribute addTodo being passed to TodoForm component (prop/property is a function addTodo that adds todo to interface) */}
         {todos.map((todo, index) => ( /* maps instructions below to each element of todos --> basically makes each item into a todo component */
             /* if isEditing true show edit todo form on screen, else display todos */
             todo.isEditing ? (
                 <EditTodoForm editTodo={editTask} todo={todo} />
             ) : (
-                <Todo todo={todo} key={index} toggleComplete={toggleComplete} deleteTodo={deleteTodo} editTodo={editTodo}/>
+                <Todo todo={todo} key={index} toggleComplete={toggleComplete} deleteTodo={deleteTodo} editTodo={editTodo}/> 
+                /* toggleComplete, deleteTodo, etc. examples of react properties (functions that can be applied on a todo) */
             )
         ))}
         
